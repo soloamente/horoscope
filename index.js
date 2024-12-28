@@ -26,7 +26,22 @@ const horoscopes = {
 
 const inputElement = document.getElementById("input");
 const button = document.getElementById("button");
+const currentDate = new Date().getHours();
 
+if (currentDate >= 6 && currentDate < 12) {
+  // Morning (6 AM to 12 PM)
+  document.body.style.background = "linear-gradient(180deg, #FFB6C1, #FFE4B5)";
+} else if (currentDate >= 12 && currentDate < 18) {
+  // Afternoon (12 PM to 6 PM)
+  document.body.style.background = "linear-gradient(180deg, #33aaff, #ffffff)";
+} else if (currentDate >= 18 && currentDate < 20) {
+  // Evening (6 PM to 8 PM)
+  document.body.style.background =
+    "linear-gradient(180deg, #BCBCBA, #FCFBCF, #FCB563)";
+} else {
+  // Night (8 PM to 6 AM)
+  document.body.style.background = "linear-gradient(180deg, #000080, #0A0A29)";
+}
 button.addEventListener("click", () => {
   const sign = inputElement.value.toLowerCase().trim();
 
@@ -37,6 +52,7 @@ button.addEventListener("click", () => {
     inputElement.value = "";
     inputElement.placeholder = `"${sign}" is not a valid zodiac sign.`;
   } else {
-    inputElement.placeholder = "Please enter a valid zodiac sign";
+    inputElement.placeholder =
+      "Please enter a valid zodiac sign and try again.";
   }
 });
