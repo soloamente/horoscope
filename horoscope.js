@@ -26,7 +26,6 @@ const horoscopes = {
 
 const inputElement = document.getElementById("input");
 const button = document.getElementById("button");
-const suggestion = "Reload the page to get a new horoscope";
 
 button.addEventListener("click", () => {
   const sign = inputElement.value.toLowerCase().trim();
@@ -34,6 +33,9 @@ button.addEventListener("click", () => {
   if (horoscopes[sign]) {
     inputElement.style.height = "200px";
     inputElement.value = horoscopes[sign];
+  } else if (sign) {
+    inputElement.value = "";
+    inputElement.placeholder = `"${sign}" is not a valid zodiac sign.`;
   } else {
     inputElement.placeholder = "Please enter a valid zodiac sign";
   }
