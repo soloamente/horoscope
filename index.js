@@ -46,7 +46,7 @@ button.addEventListener("click", () => {
   const sign = inputElement.value.toLowerCase().trim();
 
   if (horoscopes[sign]) {
-    inputElement.style.height = "200px";
+    inputElement.style.height = "250px";
     inputElement.value = horoscopes[sign];
   } else if (sign) {
     inputElement.value = "";
